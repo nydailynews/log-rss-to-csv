@@ -97,13 +97,9 @@ def main(args):
                     article['datetime'] = '%d-0%d-%d' % (dt.year, dt.month, dt.day)
                     if dt.day < 10:
                         article['datetime'] = '%d-0%d-0%d' % (dt.year, dt.month, dt.day)
-                article['slug'] = article['title'].lower().replace(' ', '-').replace('--', '-').replace(':', '')
-                article['iframe_url'] = article['media_player']['url']
-                article['image_url'] = article['media_thumbnail'][0]['url']
-                article['image_large_url'] = article['media_thumbnail'][1]['url']
-                article['description'] = article['description'].replace('"', "'")
-                # date,title,id,slug,player_url,image_url,image_large_url,keywords,description
-                print '%(datetime)s,"%(title)s",%(id)s,%(slug)s,%(iframe_url)s,%(image_url)s,%(image_large_url)s,"%(media_keywords)s","%(description)s"' % article
+                article['hour'] = dt.hour
+                # datestamp,title,hour,url
+                print '%(datetime)s,"%(title)s",%(hour)d,%(link)s' % article
 
 
 def build_parser():
