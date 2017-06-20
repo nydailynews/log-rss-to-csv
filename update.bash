@@ -16,9 +16,11 @@ if [ -e .source.bash ]; then
     source .source.bash
 fi
 
+DATE=`date +'%Y-%m-%d'`
 NEW_CSV="new-$SLUG.csv"
-CSV="$SLUG.csv"
-head -n 1 $CSV > $NEW_CSV
+CSV="$SLUG-$DATE.csv"
+
+cat header > $NEW_CSV
 python recentfeed.py $FEED --output csv --days 1 >> $NEW_CSV
 COUNT=`cat $NEW_CSV | wc -l`
 if [ $COUNT -gt 1 ]; then
