@@ -97,7 +97,9 @@ def main(args):
                     article['datetime'] = '%d-0%d-%d' % (dt.year, dt.month, dt.day)
                     if dt.day < 10:
                         article['datetime'] = '%d-0%d-0%d' % (dt.year, dt.month, dt.day)
-                article['hour'] = dt.hour
+                article['hour'] = dt.hour - 7
+                if article['hour'] < 0:
+                    article['hour'] += 24
                 # datestamp,title,hour,url
                 print '%(datetime)s,"%(title)s",%(hour)d,%(link)s' % article
 
