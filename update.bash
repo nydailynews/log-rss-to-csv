@@ -24,6 +24,5 @@ cat header > $NEW_CSV
 python recentfeed.py $FEED --output csv --days 1 >> $NEW_CSV
 COUNT=`cat $NEW_CSV | wc -l`
 if [ $COUNT -gt 1 ]; then
-    echo $COUNT
     python addtocsv.py $NEW_CSV $CSV
 fi
