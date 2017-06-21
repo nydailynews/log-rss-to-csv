@@ -1,0 +1,2 @@
+1 0 * * * cd /path/to/repo; cat ../header > feedslug-`date +'%Y-%m-%d'`.csv
+*/30 * * * * cd /path/to/repo; workon SAVE; ./update.bash --feed http://blah.com/category/feed feedslug 
