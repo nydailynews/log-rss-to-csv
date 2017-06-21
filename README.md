@@ -7,4 +7,6 @@ Decisions made in this repo: There's a new CSV created for each day's items. The
 
 1. Check out this repo
 2. Create a directory named `archive` in this repo
-3. Configure the crontab entries to your needs, add to crontab.
+3. Create virtualenv for this project
+4. `pip install -r requirements.txt`
+5. Configure the crontab entries to your needs, add to your server's crontab.
