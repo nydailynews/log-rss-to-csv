@@ -48,7 +48,7 @@ def main(args):
 
             with open(args.fns[0][1], 'wb') as csvfile:
                 current = csv.DictReader(file(args.fns[0][1], 'rb'), encoding='utf-8')
-                writefile = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writefile = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
                 writefile.writeheader()
                 ids = []
                 for item in to_add + to_update:
