@@ -17,8 +17,8 @@ if [ -e .source.bash ]; then
 fi
 
 DATE=`date +'%Y-%m-%d'`
-NEW_CSV="new-$SLUG.csv"
-CSV="$SLUG-$DATE.csv"
+NEW_CSV="archive/new-$SLUG.csv"
+CSV="archive/$SLUG-$DATE.csv"
 
 cat header > $NEW_CSV
 python recentfeed.py $FEED --output csv --days 1 >> $NEW_CSV

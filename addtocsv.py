@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#1!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Compare CSVs, adding any new items in the first CSV to the second CSV.
 import os
@@ -25,17 +25,17 @@ def main(args):
             for i, new in enumerate(new):
                 for j, existing in enumerate(current):
                     current_items.append(existing)
-                    if new['id'] == existing['id']:
-                        if new['id'] not in ids:
-                            ids.append(new['id'])
+                    if new['url'] == existing['url']:
+                        if new['url'] not in ids:
+                            ids.append(new['url'])
                             to_update.append(new)
                     else:
-                        if new['id'] not in ids:
-                            ids.append(new['id'])
+                        if new['url'] not in ids:
+                            ids.append(new['url'])
                             to_add.append(new)
                 else:
-                    if new['id'] not in ids:
-                        ids.append(new['id'])
+                    if new['url'] not in ids:
+                        ids.append(new['url'])
                         to_add.append(new)
 
             # Write the current csv
@@ -52,13 +52,13 @@ def main(args):
                 writefile.writeheader()
                 ids = []
                 for item in to_add + to_update:
-                    ids.append(item['id'])
+                    ids.append(item['url'])
                     #print item
                     writefile.writerow(item)
 
                 for item in current_items:
-                    if item['id'] not in ids:
-                        #print "NEW", item['id']
+                    if item['url'] not in ids:
+                        #print "NEW", item['url']
                         writefile.writerow(item)
 
                 
