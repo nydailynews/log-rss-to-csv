@@ -100,8 +100,9 @@ def main(args):
                 article['hour'] = dt.hour - 5
                 if article['hour'] < 0:
                     article['hour'] += 24
+                article['title'] = article['title'].encode('utf8')
                 # datestamp,title,hour,url
-                print '%(datetime)s,"%(title)s",%(hour)d,%(link)s' % article
+                print article['datetime'], ',"%s",' % article['title'], article['hour'], ',', article['link']
 
 
 def build_parser():
