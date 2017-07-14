@@ -100,6 +100,8 @@ def main(args):
                 article['hour'] = dt.hour - 5
                 if article['hour'] < 0:
                     article['hour'] += 24
+                if article['hour'] < 10:
+                    article['hour'] = '0%s' % article['hour']
                 article['title'] = article['title'].encode('utf8')
                 # datestamp,hour,title,url
                 print '%s,%s' % (article['datetime'], article['hour']), ',"%s",' % article['title'], article['link']
