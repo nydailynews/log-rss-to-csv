@@ -17,11 +17,12 @@ if [ -e .source.bash ]; then
 fi
 
 DATE=`date +'%Y-%m-%d'`
+DATE_URL=`date +'%Y/%m/%d'`
 NEW_CSV="archive/new-$SLUG.txt"
 CSV="archive/$SLUG-$DATE.txt"
 
 cat header > $NEW_CSV
-python recentfeed.py $FEED --output csv --days 1 >> $NEW_CSV
+python recentfeed.py $FEED --output csv --days 1 | grep $DATE_URL >> $NEW_CSV
 COUNT=`cat $NEW_CSV | wc -l`
 if [ $COUNT -gt 1 ]; then
     python addtocsv.py $NEW_CSV $CSV
